@@ -38,11 +38,49 @@ import {
           searchTerm
         )}&type=album,playlist,artist`;
         const result = await get(API_URL);
-        console.log(result);
+        // console.log(result);
         const { albums, artists, playlists } = result;
         dispatch(setAlbums(albums));
         dispatch(setArtists(artists));
+        // console.log(playlists)
         return dispatch(setPlayList(playlists));
+      } catch (error) {
+        console.log('error', error.code);
+      }
+    };
+  };
+
+  export const initiateLoadMoreAlbums = (url) => {
+    return async (dispatch) => {
+      try {
+        // console.log('url', url);
+        const result = await get(url);
+        // console.log('categoriess', result);
+        return dispatch(addAlbums(result.albums));
+      } catch (error) {
+        console.log('error', error);
+      }
+    };
+  };
+  export const initiateLoadMoreArtists = (url) => {
+    return async (dispatch) => {
+      try {
+        // console.log('url', url);
+        const result = await get(url);
+        // console.log('categoriess', result);
+        return dispatch(addArtists(result.artists));
+      } catch (error) {
+        console.log('error', error);
+      }
+    };
+  };
+  export const initiateLoadMorePlaylists = (url) => {
+    return async (dispatch) => {
+      try {
+        // console.log('url', url);
+        const result = await get(url);
+        // console.log('categoriess', result);
+        return dispatch(addPlaylist(result.playlists));
       } catch (error) {
         console.log('error', error);
       }

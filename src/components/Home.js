@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import Header from './Header';
 
-const Home = () => {
+const Home = (props) => {
 
   const {
     REACT_APP_CLIENT_ID,

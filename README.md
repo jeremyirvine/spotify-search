@@ -927,7 +927,7 @@ Now, let’s use this to identify when to redirect to the login page.
 
 Open `AppRouter.js` file and replace it with the following contents:
 
-```
+```js
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../components/Home';

@@ -10,7 +10,7 @@ const store = createStore(
   combineReducers({
     albums: albumsReducer,
     artists: artistsReducer,
-    playlist: playlistReducer
+    playlists: playlistReducer
   }),
   composeEnhancers(applyMiddleware(thunk))
 );

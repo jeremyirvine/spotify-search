@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import _ from 'lodash'
 import { getParamValues } from '../utils/functions'
 
-const RedirectPage = () => {
+const RedirectPage = (props) => {
 
     useEffect(() => {
-        const { setExpiryTime, history, location } = this.props
+        const { setExpiryTime, history, location } = props
         try {
             if(_.isEmpty(location.hash)) {
                 return history.push('/dashboard')
