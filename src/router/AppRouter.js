@@ -7,7 +7,7 @@ import NotFoundPage from "../components/NotFoundPage";
 
 const AppRouter = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/spotify-search">
       <div className="main">
         <Switch>
           <Route path="/" component={Home} exact={true} />
