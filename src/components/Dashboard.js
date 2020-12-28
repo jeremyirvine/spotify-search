@@ -21,24 +21,24 @@ const Dashboard = (props) => {
   const albums = useSelector(state => state.albums);
   const artists = useSelector(state => state.artists);
   const playlists = useSelector(state => state.playlists);
-  
+
   const setCategory = (category) => {
     setSelectedCategory(category);
   };
 
   const handleSearch = (searchTerm) => {
-      setIsLoading(true)
-      dispatch(initiateGetResult(searchTerm)).then(() => {
-        setSelectedCategory('albums');
-        setIsLoading(false)
-      });
-    }
-  
+    setIsLoading(true)
+    dispatch(initiateGetResult(searchTerm)).then(() => {
+      setSelectedCategory('albums');
+      setIsLoading(false)
+    });
+  }
+
   const result = { albums, artists, playlists };
 
   const loadMore = async type => {
     setIsLoading(true)
-    switch(type) {
+    switch (type) {
       case 'albums':
         await dispatch(initiateLoadMoreAlbums(albums.next));
         break;
@@ -54,17 +54,16 @@ const Dashboard = (props) => {
   }
 
   return (
-        <div>
-          <Header />
-          <SearchForm handleSearch={handleSearch} />
-          <Loader show={isLoading}>Loading...</Loader>
-          <SearchResult
-            result={result}
-            setCategory={setCategory}
-            selectedCategory={selectedCategory}
-            loadMore={loadMore} />
-          {console.log(result)}
-        </div>
+    <div>
+      <Header />
+      <SearchForm handleSearch={handleSearch} />
+      <Loader show={isLoading}>Loading...</Loader>
+      <SearchResult
+        result={result}
+        setCategory={setCategory}
+        selectedCategory={selectedCategory}
+        loadMore={loadMore} />
+    </div>
   );
 };
 
