@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Switch } from "react-router-dom";
 import Home from "../components/Home";
 import RedirectPage from "../components/RedirectPage";
 import Dashboard from "../components/Dashboard";
@@ -7,7 +7,7 @@ import NotFoundPage from "../components/NotFoundPage";
 
 const AppRouter = () => {
   return (
-    <BrowserRouter basename="/spotify-search">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="main">
         <Switch>
           <Route path="/" component={Home} exact={true} />
